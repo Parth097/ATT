@@ -26,15 +26,15 @@ app.post('/text-user', function (req, res) {
    console.log(req.body);
 
    const client = new twilio(process.env.TWILIO_ACCOUNT_SID, process.env.TWILIO_AUTH_TOKEN);
-   // const andTitle = 'Swimming Coach';
-   // var message = `Hello Connor, its me, ${name}. My AND title is AND ${andTitle}! :)`;
-   // var toNumber = '+447891187501';
-   // // Send the text message.
-   // client.messages.create({
-   // to: toNumber,
-   // from: process.env.MYTWILLO,
-   // body: message
-   // });
+   const andTitle = req.body.andTitle;
+   var message = `Hello ${req.body.receiverName}, its me, ${req.body.name}. My AND title is AND ${andTitle}! :)`;
+   var toNumber = req.body.receiverNum;
+   // Send the text message.
+   client.messages.create({
+   to: toNumber,
+   from: process.env.MYTWILLO,
+   body: message
+   });
 
    console.log("Text Sent!");
 });
