@@ -35,25 +35,32 @@
         <br />
         <br />
         <br />
-        <button onclick="sendMessage()">Send</button>
+        
         <button type="reset">Cancel</button>
       </form>
+      <button onclick="sendMessage()">Send</button>
     </div>
   </div>
 </body>
 
 <script>
   function sendMessage() {
-    var senderName = document.getElementById("SenderName").value;
+    var name = document.getElementById("SenderName").value;
     var andTitle = document.getElementById("ANDTitle").value;
     var receiverName = document.getElementById("receiverName").value;
     var receiverNum = document.getElementById("receiverNum").value;
 
     var message = {
-      senderName,
+      name,
       andTitle,
       receiverName,
       receiverNum,
     };
+    var test = JSON.stringify(message);
+    const http = new XMLHttpRequest()
+        http.open('POST', 'http://localhost:3000/text-user')
+        http.setRequestHeader('Content-type', 'application/json')
+        http.send(test)
+        console.log(test);
   }
 </script>

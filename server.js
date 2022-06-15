@@ -5,7 +5,11 @@ const twilio = require('twilio');
 var path = require("path");
 
 require('dotenv').config();
+var parser = require('body-parser')
+var cors = require('cors')
 
+app.use(cors())
+app.use(parser.json())
 
 app.get("/", function (req, res){
 
@@ -18,18 +22,19 @@ app.get("/", function (req, res){
 app.post('/text-user', function (req, res) {
    
    // Find your account sid and auth token in your Twilio account Console.
+   
+   console.log(req.body);
 
    const client = new twilio(process.env.TWILIO_ACCOUNT_SID, process.env.TWILIO_AUTH_TOKEN);
-   const name = 'Connor';
-   const andTitle = 'Swimming Coach';
-   var message = `Hello Connor, its me, ${name}. My AND title is AND ${andTitle}! :)`;
-   var toNumber = '+447891187501';
-   // Send the text message.
-   client.messages.create({
-   to: toNumber,
-   from: process.env.MYTWILLO,
-   body: message
-   });
+   // const andTitle = 'Swimming Coach';
+   // var message = `Hello Connor, its me, ${name}. My AND title is AND ${andTitle}! :)`;
+   // var toNumber = '+447891187501';
+   // // Send the text message.
+   // client.messages.create({
+   // to: toNumber,
+   // from: process.env.MYTWILLO,
+   // body: message
+   // });
 
    console.log("Text Sent!");
 });
