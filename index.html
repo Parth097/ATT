@@ -1,37 +1,59 @@
+<style>
+  h1 {
+    text-align: center;
+    color: red;
+  }
+  p {
+    text-align: center;
+  }
+  div {
+    text-align: center;
+  }
+</style>
 <body>
-    AND Digital     ATT (AND Title Thingy)
-    <form>
+  <div>
+    <div>
+      <h1>AND Digital ATT (AND Title Thingy)</h1>
+    </div>
+    <br />
+    <div>
+      <form>
         <label for="SenderName">Who are you?</label>
-        <input id="SenderName" type="text" placeholder="<Insert Name>"/>
-        
-        <label for="ANDTitle">What's your AND title</label>
-        <input id="ANDTitle" type="text" placeholder="AND.."/>
-
+        <input id="SenderName" type="text" placeholder="<Insert Name>" />
+        <br />
+        <br />
+        <br />
+        <label for="ANDTitle">What's your AND title?</label>
+        <input id="ANDTitle" type="text" placeholder="AND.." />
+        <br />
+        <br />
+        <br />
         <label for="receiverName">Who are you sending this to?</label>
-        <input id="receiverName" type="text" placeholder="<Name>"/>
+        <input id="receiverName" type="text" placeholder="<Name>" />
         <label for="receiverNum" hidden>Enter phone number</label>
-        <input id="receiverNum" type="tel" placeholder="<Number>"/>
-        
+        <input id="receiverNum" type="tel" placeholder="<Number>" />
+        <br />
+        <br />
+        <br />
         <button onclick="sendMessage()">Send</button>
         <button type="reset">Cancel</button>
-    </form>
+      </form>
+    </div>
+  </div>
 </body>
 
 <script>
-    function sendMessage(){
-        
-        var senderName = document.getElementById("SenderName").value;
-        var andTitle = document.getElementById("ANDTitle").value;
-        var receiverName = document.getElementById("receiverName").value;
-        var receiverNum = document.getElementById("receiverNum").value;
+  function sendMessage() {
+    var senderName = document.getElementById("SenderName").value;
+    var andTitle = document.getElementById("ANDTitle").value;
+    var receiverName = document.getElementById("receiverName").value;
+    var receiverNum = document.getElementById("receiverNum").value;
 
-        var message =
-        {
-            senderName,
-            andTitle,
-            receiverName,
-            receiverNum
-        }
-
+    var message = {
+      senderName,
+      andTitle,
+      receiverName,
+      receiverNum,
     };
+  }
 </script>
